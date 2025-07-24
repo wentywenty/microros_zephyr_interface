@@ -1,2 +1,13 @@
 # microros_zephyr_interface
-microros
+
+microros在zephyr上实现最大的难点，应该是modules里面的配置系统，如何移植的问题
+
+首先，每个小项目的cmake必须重写，这样就会增加很多的工作量，因为zephyr构建系统并不支持通用的一些cmake指令，必须移植为target_sources()的格式
+
+其次，microros在每个rtos操作系统中的实现，不应该千篇一律，就像rmw一样，得在不同操作系统上，布置一个统一的rtos接口
+
+再次，microros在zephyr中的优势是Kconfig配置系统，应该通过Kconfig系统去承担microros中的软件包管理器
+
+然后，microros项目初期，应该分化为不同的分支，以适应不同rtos的变化，最好全部实现一层兼容层，之后就好写了
+
+最后，希望这个项目发展越来越好，虽然市场化程度不高，希望更多人去用，去普及这个东西，本人水平精力有限，作为使用zephyr和ros有2年的用户，只能感悟这么多了
